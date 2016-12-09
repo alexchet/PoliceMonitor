@@ -7,8 +7,23 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Common.createVehiclesSpeedingTable();
+		System.out.println("Vehicles Speeding Table created successfully!");
+		
+		boolean contVehiclesRead = true;
+	    while(true)  {
+	    	if (contVehiclesRead) {
+	    		contVehiclesRead = Common.receiveVehicleSpeedingMessages();
+	    	} else {
+	            System.out.println("I'm tired, guess I'll sleep for 30 seconds!");
+				contVehiclesRead = true;
+	            try {
+					Thread.sleep(30000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        }
+	    }
 	}
-
 }
