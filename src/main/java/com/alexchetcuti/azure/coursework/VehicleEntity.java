@@ -23,14 +23,14 @@ public class VehicleEntity extends TableServiceEntity {
 				"Registration Plate: " + this.getRegPlate() + " | " +
 				"Velocity: " + this.getVelocity() + " | " +
 				"Camera Unique ID: " + this.getCameraUniqueID() + " | " +
-				"Is Priority: " + this.isPriority();
+				"Is Priority: " + this.getPriority();
 	}
 	
 	private String vehicleType;
 	private String regPlate;
 	private int velocity;
 	private int cameraUniqueID;
-	private boolean isPriority;
+	private String Priority;
 	
 	/**
 	 * @return the vehicleType
@@ -89,17 +89,17 @@ public class VehicleEntity extends TableServiceEntity {
 	}
 
 	/**
-	 * @return the isPriority
+	 * @return the priority
 	 */
-	public boolean isPriority() {
-		return isPriority;
+	public String getPriority() {
+		return Priority;
 	}
 
 	/**
-	 * @param isPriority the isPriority to set
+	 * @param priority the priority to set
 	 */
-	public void setPriority(boolean isPriority) {
-		this.isPriority = isPriority;
+	public void setPriority(String priority) {
+		Priority = priority;
 	}
 
 }

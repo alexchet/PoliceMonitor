@@ -89,14 +89,14 @@ public class Common {
 	            String printPrefix = "";
 	            if (vehicleEntity.getVelocity() > (speedLimit + (speedLimit * 0.1))) {
 	            	printPrefix = "PRIORITY";
+		            vehicleEntity.setPriority("PRIORITY");
 	            }	
+
+	            //set is priority to vehicle entity
 	            
 	            System.out.println((printPrefix == "" ? "" : printPrefix + " || ") + 
 	            		vehicleEntity.toString());
 	            
-	            //set is priority to vehicle entity
-	            vehicleEntity.setPriority(printPrefix == "PRIORITY");
-
 	            CloudTableClient tableClient = storageAccount.createCloudTableClient();
 	            CloudTable cloudTable = tableClient.getTableReference("VehiclesSpeeding");
 	            TableOperation insertOperation = TableOperation.insertOrReplace(vehicleEntity);
@@ -142,7 +142,7 @@ public class Common {
 		}
 	}
 	
-	public static void removeVehiclesTable()
+	public static void removeVehiclesSpeedingTable()
 	{
 		try
 		{
