@@ -8,7 +8,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		Common.createVehiclesSpeedingTable();
-		
 		System.out.println("Vehicles Speeding Table created successfully!");
 		
 		boolean contVehiclesRead = true;
