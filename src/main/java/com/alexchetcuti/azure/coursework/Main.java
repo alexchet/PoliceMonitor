@@ -11,14 +11,22 @@ public class Main {
 		System.out.println("Vehicles Speeding Table created successfully!");
 		
 		boolean contVehiclesRead = true;
+		int timeSleep = 1000;
+		int timeSleepMax = 128000;
 	    while(true)  {
 	    	if (contVehiclesRead) {
 	    		contVehiclesRead = Common.receiveVehicleSpeedingMessages();
+	    		if (contVehiclesRead) timeSleep = 1000;
 	    	} else {
-	            System.out.println("I'm tired, guess I'll sleep for 30 seconds!");
+	            System.out.println("I'm tired, guess I'll sleep for " + timeSleep/1000 + " second"
+	            		+ ((timeSleep/1000) > 1 ? "s" : "") + "!");
+	            
+	            if (timeSleep < timeSleepMax) {
+	            	timeSleep  = timeSleep * 2;
+	            }
 				contVehiclesRead = true;
 	            try {
-					Thread.sleep(30000);
+					Thread.sleep(timeSleep);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
